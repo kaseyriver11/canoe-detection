@@ -1,8 +1,7 @@
 # Canoe Object Detection Instructions (2021)
 
-This repository contains the images and labels needed for training. You will need to download the pretrained model from tensorflows model [zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_detection_zoo.md).
+This repository contains the images and annotations needed for training. We do not provide instructions for obtaining and labeling these images. Images were taken from both Bing and Google Earth. We do not own these images.
 
-We found [this](https://neptune.ai/blog/how-to-train-your-own-object-detector-using-tensorflow-object-detection-api) article to be helpful when switching from tensorflow 1.* to 2.*
 
 ### Environment Setup
 
@@ -14,29 +13,44 @@ Create your virtual environment:
 pip install virtualenv
 virtualenv python_env --python=python3.8
 source python_env/bin/activate
-pip install tensorflow==2.6.1
+pip install tensorflow
 pip install jupyter
+```
+
+Clone the tensorflow object detection models repo:
+```
 git clone git@github.com:tensorflow/models.git
 ```
 
-You will need [protobuf](https://stackoverflow.com/questions/21775151/installing-google-protocol-buffers-on-mac) if you don't already have it.
+From here, we recomend following the official tensorflow documentation on setup found [here](https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/install.html).
 
-For mac:
+Verify the installation:
 ```
-brew install protobuf
-```
-
-```
-cd models/research
-protoc models/research/object_detection/protos/*.proto --python_out=.
+python3 -c "import tensorflow as tf;print(tf.reduce_sum(tf.random.normal([1000, 1000])))"
 ```
 
-Setup tensorflow object detection:
+
+### Split the images train/test
 
 ```
-cp object_detection/packages/tf2/setup.py .
-python -m pip install .
+python3 src/split_images.py 
 ```
+
+### Convert XML Records to `.record`
+
+```
+python3 src/xml_to_tfrecord.py
+```
+
+### Download Pretrained Model
+
+You will need to download the pretrained model from tensorflows model [zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_detection_zoo.md).
+
+We selected [this](http://download.tensorflow.org/models/object_detection/tf2/20200711/faster_rcnn_resnet50_v1_640x640_coco17_tpu-8.tar.gz) model.S
+
+Unzip this file and place in `workspace/`
+
+If you use the same modle, you can use the config file in the repo.
 
 ### Train
 
@@ -48,25 +62,22 @@ cd <root_of_repo>
 python models/research/object_detection/model_main_tf2.py \
   --pipeline_config_path=workspace/faster_rcnn_resnet101_v1_640x640_coco17_tpu-8/pipeline.config \
   --model_dir=workspace/boat_model \
-  --checkpoint_every_n=100 \
+  --checkpoint_every_n=10_000 \
   --num_workers=2 \
   --alsologtostderr
 ```
 
 
 
-
-### Download pretrained model:
-
-Go to the [model zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_detection_zoo.md) and select a model you want to use. We picked one based on speed and accuracy.
-
-```
-scp -r <...>/Downloads/efficientdet_d3_coco17_tpu-32 <user>@singularity:/data/Projects/ethiopia_geo/workspace/india-490/pre-trained-models
-```
-
 You will need to update the config using the tutorial if you are not using the config we have already updated in the repo. Make sure batch size is lowered, or you wont have enough memory available to run. I used a batch size of 8.
 
 ## Train
+
+### Split Images into Training/Testing
+
+```
+python src/split_images.py 
+```
 
 If you need the python file, from local singularity terminal:
 `cp models/research/object_detection/model_main_tf2.py workspace/india-490/`
