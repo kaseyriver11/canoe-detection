@@ -1,12 +1,9 @@
 # Canoe Object Detection Instructions (2021)
 
-<<<<<<< HEAD
-This repository contains the images and annotations needed for training. We do not provide instructions for obtaining and labeling these images. Images were taken from both Bing and Google Earth. We do not own these images.
-=======
+
 https://gist.github.com/kaseyriver11/6789e0c584cc555c8698be7dc95c4baf
 
 This repository contains the images and labels needed for training. You will need to download the pretrained model from tensorflows model [zoo](https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/tf2_detection_zoo.md).
->>>>>>> 126b7ccd4de4492d13a339a3049ee27c272857c3
 
 
 ### Environment Setup
