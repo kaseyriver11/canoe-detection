@@ -1,8 +1,6 @@
 # Canoe Object Detection Instructions (2021)
 
 
-https://gist.github.com/kaseyriver11/6789e0c584cc555c8698be7dc95c4baf
-
 This repository contains the images and labels needed for training. Images were taken from both Google Earth and Bing. We do not own these images. Labeling was completing using RectLabel. However, we now use LabelBox to perform labeling.
 
 ### Environment Setup
