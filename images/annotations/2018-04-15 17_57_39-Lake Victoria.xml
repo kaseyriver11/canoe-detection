@@ -1,0 +1,45 @@
+<annotation>
+    <folder>LV</folder>
+    <filename>2018-04-15 17_57_39-Lake Victoria.jpg</filename>
+    <size>
+        <width>720</width>
+        <height>720</height>
+    </size>
+    <segmented>0</segmented>
+    <object>
+        <name>boat</name>
+        <bndbox>
+            <xmin>693</xmin>
+            <ymin>626</ymin>
+            <xmax>720</xmax>
+            <ymax>670</ymax>
+        </bndbox>
+    </object>
+    <object>
+        <name>boat</name>
+        <bndbox>
+            <xmin>385</xmin>
+            <ymin>566</ymin>
+            <xmax>433</xmax>
+            <ymax>602</ymax>
+        </bndbox>
+    </object>
+    <object>
+        <name>boat</name>
+        <bndbox>
+            <xmin>225</xmin>
+            <ymin>523</ymin>
+            <xmax>262</xmax>
+            <ymax>580</ymax>
+        </bndbox>
+    </object>
+    <object>
+        <name>boat</name>
+        <bndbox>
+            <xmin>346</xmin>
+            <ymin>413</ymin>
+            <xmax>372</xmax>
+            <ymax>459</ymax>
+        </bndbox>
+    </object>
+</annotation>

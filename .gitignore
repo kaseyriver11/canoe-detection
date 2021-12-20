@@ -1,0 +1,8 @@
+docker/
+.txt
+Kenya_fishing_boats/
+models/
+object-detection/
+python_env/
+workspace/boat_model/
+workspace/faster_rcnn_resnet101_v1_640x640_coco17_tpu-8/

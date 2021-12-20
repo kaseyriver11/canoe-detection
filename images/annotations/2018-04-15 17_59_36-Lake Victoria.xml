@@ -1,0 +1,18 @@
+<annotation>
+    <folder>LV</folder>
+    <filename>2018-04-15 17_59_36-Lake Victoria.jpg</filename>
+    <size>
+        <width>720</width>
+        <height>720</height>
+    </size>
+    <segmented>0</segmented>
+    <object>
+        <name>boat</name>
+        <bndbox>
+            <xmin>354</xmin>
+            <ymin>472</ymin>
+            <xmax>373</xmax>
+            <ymax>509</ymax>
+        </bndbox>
+    </object>
+</annotation>

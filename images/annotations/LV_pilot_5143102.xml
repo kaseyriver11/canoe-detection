@@ -1,0 +1,27 @@
+<annotation>
+    <folder>750s</folder>
+    <filename>LV_pilot_5143102.jpg</filename>
+    <size>
+        <width>750</width>
+        <height>750</height>
+    </size>
+    <segmented>0</segmented>
+    <object>
+        <name>boat</name>
+        <bndbox>
+            <xmin>598</xmin>
+            <ymin>143</ymin>
+            <xmax>623</xmax>
+            <ymax>212</ymax>
+        </bndbox>
+    </object>
+    <object>
+        <name>boat</name>
+        <bndbox>
+            <xmin>620</xmin>
+            <ymin>153</ymin>
+            <xmax>639</xmax>
+            <ymax>217</ymax>
+        </bndbox>
+    </object>
+</annotation>
