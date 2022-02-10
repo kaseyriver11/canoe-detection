@@ -110,7 +110,8 @@ def main():
     train_file = "workspace/data/train.tfrecord"
     writer = tf.python_io.TFRecordWriter(train_file)
     path = os.path.join("images/train/")
-    examples = xml_to_csv("images/train/annotations", "workspace/data/train.csv")
+    examples = xml_to_csv("images/train/annotations",
+                          "workspace/data/train.csv")
     grouped = split(examples[0:100], 'filename')
     for group in grouped:
         tf_example = create_tf_example(group, path)
